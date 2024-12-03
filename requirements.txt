@@ -14,14 +14,13 @@ chromadb
 sentence_transformers
 langchain_huggingface
 faiss-cpu
-chromadb
 langchain_chroma
 streamlit
+streamlit-chat
 langchain_groq
 langchain_core
 fastapi
 uvicorn
 langserve
-langchain-groq
 flask
 ragas
