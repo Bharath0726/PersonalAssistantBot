@@ -1,5 +1,5 @@
 import streamlit as st
-from streamlit_chat import message
+from streamlit_chat import message  # Ensure streamlit-chat is installed
 from PyPDF2 import PdfReader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.chains import RetrievalQA
@@ -25,7 +25,7 @@ model = ChatGroq(
     model_name="llama3-8b-8192",
     temperature=0.3
 )
-embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")  # No additional parameters
+embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
 
 # Functions
 def get_pdf_text(pdf_path):
