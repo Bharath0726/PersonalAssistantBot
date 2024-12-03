@@ -13,7 +13,7 @@ import os
 load_dotenv()
 
 # Constants
-DEFAULT_PDF_PATH = "docs/about.pdf"  # Update with your PDF path
+DEFAULT_PDF_PATH = "Docs/about.pdf"  # Update with your PDF path
 VECTOR_STORE_FILENAME = "faiss_index"
 
 # Initialize API Keys
