@@ -101,31 +101,81 @@ st.set_page_config(page_title="Bharath's Assistant", page_icon="🤖", layout="w
 st.markdown(
     """
     <style>
+    /* Background Styling */
     body {
-        background-image: url('your-image-url');
-        background-size: cover;
-        background-position: center;
+        background-color: #1f242d; /* Dark Blue-Gray */
         color: white;
     }
+
+    /* Center Content */
     .main {
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(50, 57, 70, 0.9); /* Semi-transparent background */
         padding: 20px;
         border-radius: 10px;
     }
+
+    /* Change Title Color */
     h1 {
-        color: #FFD700;
+        color: #0ef; /* Cyan Blue */
         text-align: center;
-        font-family: 'Arial', sans-serif;
+        font-family: 'Poppins', sans-serif;
     }
+
+    /* Chat Message Styling */
     .chat-message {
         color: white;
         font-size: 1.2rem;
         line-height: 1.5;
+        padding: 10px;
+        border-radius: 10px;
+        margin-bottom: 10px;
     }
+
+    /* User Messages */
+    .user {
+        background: linear-gradient(135deg, #FF5733, #C70039);
+        padding: 10px;
+        border-radius: 10px;
+        color: white;
+        font-weight: bold;
+    }
+
+    /* Assistant Messages */
+    .assistant {
+        background: linear-gradient(135deg, #1E3A8A, #4A90E2);
+        padding: 10px;
+        border-radius: 10px;
+        color: white;
+    }
+
+    /* Chat Input Box */
+    .stChatInput {
+        border-radius: 10px;
+        border: 2px solid #0ef; /* Cyan border */
+        font-size: 1.1rem;
+    }
+
+    /* Buttons Styling */
+    .stButton>button {
+        background: linear-gradient(135deg, #0ef, #1E3A8A);
+        color: white;
+        border-radius: 8px;
+        padding: 10px 15px;
+        font-weight: bold;
+        font-size: 1rem;
+        transition: 0.3s;
+    }
+
+    .stButton>button:hover {
+        background: linear-gradient(135deg, #1E3A8A, #0ef);
+        transform: scale(1.05);
+    }
+
     </style>
     """,
     unsafe_allow_html=True
 )
+
 
 # Header Section
 st.title("💬🤖 Meet Jarvis: Bharath's Personal Assistant")
