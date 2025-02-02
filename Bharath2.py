@@ -97,22 +97,23 @@ Response:
 st.set_page_config(page_title="Bharath's Assistant", page_icon="🤖", layout="wide")
 
 # CSS for background image and styling
+# Old CSS block (Replace this with the new one)
 st.markdown(
     """
     <style>
     body {
-        background-image: url('https://images.unsplash.com/photo-1522120691812-dcdfb625f397?q=80&w=2187&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Replace with your image URL */
+        background-image: url('your-image-url');
         background-size: cover;
         background-position: center;
         color: white;
     }
     .main {
-        background: rgba(0, 0, 0, 0.5); /* Transparent dark background for content */
+        background: rgba(0, 0, 0, 0.5);
         padding: 20px;
         border-radius: 10px;
     }
     h1 {
-        color: #FFD700; /* Golden title text */
+        color: #FFD700;
         text-align: center;
         font-family: 'Arial', sans-serif;
     }
@@ -140,8 +141,9 @@ if "messages" not in st.session_state:
 
 # Display chat history
 for message in st.session_state.messages:
+    message_class = "user" if message["role"] == "user" else "assistant"
     with st.chat_message(message["role"]):
-        st.markdown(f"<div class='chat-message'>{message['content']}</div>", unsafe_allow_html=True)
+        st.markdown(f"<div class='chat-message {message_class}'>{message['content']}</div>", unsafe_allow_html=True)
 
 # User input
 if prompt := st.chat_input("Ask me a question..."):
