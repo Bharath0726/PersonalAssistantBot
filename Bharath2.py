@@ -97,55 +97,39 @@ Response:
 st.set_page_config(page_title="Bharath's Assistant", page_icon="🤖", layout="wide")
 
 # CSS for background image and styling
-# Old CSS block (Replace this with the new one)
 st.markdown(
     """
     <style>
     /* Background Styling */
     body {
-        background-color: #1f242d; /* Dark Blue-Gray */
+        background-color: #1f242d; /* Dark theme */
         color: white;
     }
 
-    /* Center Content */
+    /* Main Chat Container */
     .main {
         background: rgba(50, 57, 70, 0.9); /* Semi-transparent background */
         padding: 20px;
         border-radius: 10px;
     }
 
-    /* Change Title Color */
+    /* Title Styling */
     h1 {
-        color: #0ef; /* Cyan Blue */
+        color: #0ef; /* Cyan */
         text-align: center;
         font-family: 'Poppins', sans-serif;
     }
 
-    /* Chat Message Styling */
+    /* Chat Message Styling (For Both User & Assistant) */
     .chat-message {
-        color: white;
         font-size: 1.2rem;
         line-height: 1.5;
-        padding: 10px;
+        padding: 12px;
         border-radius: 10px;
         margin-bottom: 10px;
-    }
-
-    /* User Messages */
-    .user {
-        background: linear-gradient(135deg, #FF5733, #C70039);
-        padding: 10px;
-        border-radius: 10px;
         color: white;
-        font-weight: bold;
-    }
-
-    /* Assistant Messages */
-    .assistant {
-        background: linear-gradient(135deg, #1E3A8A, #4A90E2);
-        padding: 10px;
-        border-radius: 10px;
-        color: white;
+        background: linear-gradient(135deg, #1E3A8A, #4A90E2); /* Same gradient for all messages */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     }
 
     /* Chat Input Box */
@@ -177,6 +161,7 @@ st.markdown(
 )
 
 
+
 # Header Section
 st.title("💬🤖 Meet Jarvis: Bharath's Personal Assistant")
 
@@ -189,11 +174,11 @@ if "messages" not in st.session_state:
         {"role": "assistant", "content": "Hi, Jarvis here! Bharath's personal assistant chatbot. How can I assist you today?"}
     ]
 
-# Display chat history
 for message in st.session_state.messages:
-    message_class = "user" if message["role"] == "user" else "assistant"
     with st.chat_message(message["role"]):
-        st.markdown(f"<div class='chat-message {message_class}'>{message['content']}</div>", unsafe_allow_html=True)
+        st.markdown(
+            f"<div class='chat-message'>{message['content']}</div>", unsafe_allow_html=True
+        )
 
 # User input
 if prompt := st.chat_input("Ask me a question..."):
