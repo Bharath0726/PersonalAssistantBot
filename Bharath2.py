@@ -19,6 +19,11 @@ VECTOR_STORE_FILENAME = "faiss_index"
 # Initialize API Keys
 os.environ["GROQ_API_KEY"] = os.getenv("GROQ_API_KEY")
 
+## Langsmith Tracking
+os.environ["LANGCHAIN_API_KEY"]=os.getenv("LANGCHAIN_API_KEY")
+os.environ["LANGCHAIN_TRACING_V2"]="true"
+os.environ["LANGCHAIN_PROJECT"]=os.getenv("LANGCHAIN_PROJECT")
+
 # Initialize LLM and Embeddings
 model = ChatGroq(
     groq_api_key=os.getenv("GROQ_API_KEY"),
