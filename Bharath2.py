@@ -1,5 +1,5 @@
 import streamlit as st
-from streamlit_chat import message  # Ensure streamlit-chat is installed
+from streamlit_chat import message 
 from PyPDF2 import PdfReader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.chains import RetrievalQA
@@ -13,7 +13,7 @@ import os
 load_dotenv()
 
 # Constants
-DEFAULT_PDF_PATH = "Docs/about.pdf"  # Update with your PDF path
+DEFAULT_PDF_PATH = "Docs/about.pdf"  
 VECTOR_STORE_FILENAME = "faiss_index"
 
 # Initialize API Keys
@@ -82,7 +82,7 @@ retriever = vector_store.as_retriever()
 qa_chain = RetrievalQA.from_chain_type(
     llm=model,
     retriever=retriever,
-    chain_type="stuff",  # Chain type for simple retrieval-based answering
+    chain_type="stuff",  
     verbose=True
 )
 
@@ -91,17 +91,20 @@ qa_chain.combine_documents_chain.llm_chain.prompt = (
     qa_chain.combine_documents_chain.llm_chain.prompt.copy(update={
         "template": """
 Instructions:
-- Answer based strictly on the provided context
-- If the answer isn't in the context, respond with: "I don't have this information in my knowledge base, but I'll be happy to check with Bharath and get back to you on this!"
-- Provide a clear, concise, and structured response
-- If asked "Who are you?", respond "I am 'Jarvis,' Bharath's personal assistant chatbot"
-- Maintain a friendly and helpful tone
+- Answer strictly based on the provided context.
+- If the information is not available, respond with:
+  "I don't have this information at the moment, but I'll check with Bharath and get back to you within a few hours."
+- Maintain a professional, clear, and structured response.
+- Use a friendly and courteous tone while keeping it professional.
+- If asked, "Who are you?", respond with:
+  "I am 'Jarvis,' Bharath's personal assistant chatbot. I'm here to assist with any inquiries based on the available information."
+- Avoid speculation or assumptions; only provide verified details.
 
 Context:
-{{context}}
+{context}
 
 Question:
-{{question}}
+{question}
 
 Response:
 """
