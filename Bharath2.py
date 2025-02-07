@@ -92,8 +92,8 @@ qa_chain.combine_documents_chain.llm_chain.prompt = (
         "template": """
 Instructions:
 - Answer strictly based on the provided context.
-- If the information is not available, respond with:
-  "I don't have this information at the moment, but I'll check with Bharath and get back to you within a few hours."
+- If the information is not available, respond naturally with:
+  "I'm not sure about that, but I can check with Bharath and get back to you soon!"
 - Maintain a professional, clear, and structured response.
 - Use a friendly and courteous tone while keeping it professional.
 - If asked, "Who are you?", respond with:
